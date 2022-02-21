@@ -1,4 +1,5 @@
 import math
+import PySimpleGUI as sg
 def differentiation(A,N):
    if N==1:
       return A
