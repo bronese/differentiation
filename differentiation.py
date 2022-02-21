@@ -11,21 +11,25 @@ def differentiation(A,N):
       b=str(b)
       return an1+"x^"+b
    
-def error_code(a,n): 
+def error_code(a):
    if not(str.isnumeric(a)):
       print(f"{a} is not a numerical response")
+      
+def error_code(n):
    if not(str.isnumeric(n)):
       print(f"{n} is not a numerical response")
 
 # input chunk
-a=input("input 'a' value") 
+a=input("input 'a' value: ")
 while not(str.isnumeric(a)):
    print(error_code(a))
-   if (str.isnumeric(a)):
+   a=input("input 'a' value: ")
+   if not(str.isnumeric(a)):
       break
-n=input("input 'n' value")
+n=input("input 'n' value: ")
 while not(str.isnumeric(n)):
    print(error_code(n))
+   n=input("input 'n' value: ")
    if (str.isnumeric(n)):
       break
 
