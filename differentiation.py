@@ -1,5 +1,5 @@
 import math
-import PySimpleGUI as sg
+from this import d
 def differentiation(A,N):
    if N==1:
       return A
@@ -11,14 +11,10 @@ def differentiation(A,N):
       b=N-1
       b=str(b)
       return an1+"x^"+b
-   
-def error_code(a):
-   if not(str.isnumeric(a)):
-      print(f"{a} is not a numerical response")
-      
-def error_code(n):
-   if not(str.isnumeric(n)):
-      print(f"{n} is not a numerical response")
+
+def error_code(f):
+   if not(str.isnumeric(f)):
+      return f"{f} is not a numerical response"
 
 # input chunk
 a=input("input 'a' value: ")
