@@ -10,20 +10,14 @@ def differentiation(A: float, N: float) -> str:
       an1=A*N
       b=N-1
       return f"{an1}x^{b}"
-
-def error_code(f):
-   try:
-      f=float(f)
-   except ValueError as float_conversion_err:
-      sg.popup(f"{f} is not a numerical response")
-
-def nanerror(g):
+def error_code(f):                        #string error
+   sg.popup(f"{f} is NOT a valid numerical response")
+def nanerror(g):                          #nan error
    if math.isnan(g):
       sg.popup("what in God's green Earth are you attempting to do???")
-   
 
 #UI
-sg.theme('DarkAmber')   # Add a touch of color
+sg.theme('DarkAmber')    # Add a touch of color
 # All the stuff inside window.
 layout = [  [sg.Text('Differentiation Calculator')],
             [sg.Text('Enter value "a"'), sg.InputText()],
@@ -39,14 +33,14 @@ while True:
    n=values[1]
    if event == sg.WIN_CLOSED or event == 'Cancel': 
         break
-   try:
+   try:                                   #string parsing
       a=float(a)
       n=float(n)
    except ValueError as float_conversion_err:
       error_code(a)
       error_code(n)
-   else:
-      if math.isnan(a) or math.isnan(n):
+   else: 
+      if math.isnan(a) or math.isnan(n):   #nan parsing
          nanerror(a)
          nanerror(n)
       else:
