@@ -10,15 +10,6 @@ def differentiation(A: float, N: float) -> str:
       an1=A*N
       b=N-1
       return f"{an1}x^{b}"
-   
-# def error_code(a):
-#    if not(str.isnumeric(a)):
-#       print(f"{a} is not a numerical response")
-      
-# def error_code(n):
-#    if not(str.isnumeric(n)):
-#       print(f"{n} is not a numerical response")
-
 #UI
 sg.theme('DarkAmber')   # Add a touch of color
 # All the stuff inside your window.
@@ -29,7 +20,7 @@ layout = [  [sg.Text('Differentiation Calculator')],
 
 # Create the Window
 window = sg.Window('Differentiation',layout)
-# Event Loop to process "events" and get the "values" of the inputs
+# Window 
 while True:
     event,values = window.read()
     a=values[0]
