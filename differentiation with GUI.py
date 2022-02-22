@@ -9,7 +9,7 @@ def differentiation(A: float, N: float) -> str:
    else:
       an1=A*N
       b=N-1
-      return f"{an1}x\u00b{b}"
+      return f"{an1}x^{b}"
    
 # def error_code(a):
 #    if not(str.isnumeric(a)):
