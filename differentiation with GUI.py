@@ -1,5 +1,6 @@
-import math as m
+import math
 import PySimpleGUI as sg
+import numpy as np
 def differentiation(A: float, N: float) -> str:
    if N==1:
       return A
@@ -9,16 +10,18 @@ def differentiation(A: float, N: float) -> str:
       an1=A*N
       b=N-1
       return f"{an1}x^{b}"
+
 def error_code(f):
-    if f==nan:
-      sg.popup(f"what the fuck are you doing????")
-    else:
-      try:
-         f=float(f)
-      except ValueError as float_conversion_err:
-         sg.popup(f"{f} is not a numerical response")
-      return
-nan = float("NaN")
+   try:
+      f=float(f)
+   except ValueError as float_conversion_err:
+      sg.popup(f"{f} is not a numerical response")
+
+def nanerror(g):
+   if math.isnan(g):
+      sg.popup("what in God's green Earth are you attempting to do???")
+   
+
 #UI
 sg.theme('DarkAmber')   # Add a touch of color
 # All the stuff inside window.
@@ -36,9 +39,6 @@ while True:
    n=values[1]
    if event == sg.WIN_CLOSED or event == 'Cancel': 
         break
-   if a==nan or n==nan:
-      error_code(a)
-      error_code(n) 
    try:
       a=float(a)
       n=float(n)
@@ -46,5 +46,9 @@ while True:
       error_code(a)
       error_code(n)
    else:
-      sg.popup(f"Answer is {differentiation(a,n)}")   
+      if math.isnan(a) or math.isnan(n):
+         nanerror(a)
+         nanerror(n)
+      else:
+         sg.popup(f"Answer is {differentiation(a,n)}")
 window.close()
